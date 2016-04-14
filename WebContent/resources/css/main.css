@@ -1,0 +1,9 @@
+body {
+    background-color: yellow;
+}
+
+img {
+	display: block;
+	margin: auto;
+    width: 10%;
+}
