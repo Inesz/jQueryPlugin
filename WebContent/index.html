@@ -1,18 +1,85 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
-	type="text/javascript"></script>
-<script type="text/javascript" src="./resources/js/jquery.validate.js"></script>
-<script type="text/javascript" src="./resources/js/main.js"></script>
-<link rel="stylesheet" type="text/css" href="./resources/css/main.css" />
 
-<title>jQueryProject</title>
+<head>
+    <meta charset="UTF-8" />
+    <!--bootstrap-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./resources/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="./resources/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./resources/css/main.css" />
+
+    <title>jQueryProject</title>
 </head>
 
 <body>
-	<img src="./resources/images/icons/tools.png" alt="tools">
+    <header>
+        <h1>Witaj w formularzu rejestracyjnym</h1>
+    </header>
+
+    <form>
+        <fieldset name="dane_osobowe">
+            <legend>dane osobowe</legend>
+            <label name="imie">imie</label>
+            <input type="text" name="imie">
+
+            <label name="nazwisko">nazwisko</label>
+            <input type="text" name="nazwisko">
+
+            <label name="plec">płeć</label>
+            <label name="lab_plec">
+                <i name="plec" class="fa fa-venus" alt="k"></i>
+                <input type="radio" name="plec" id="m" value="m">
+            </label>
+            <label name="lab_plec"><i name="plec" class="fa fa-mars" alt="m"></i>
+                <input type="radio" name="plec" id="k" value="k">
+            </label>
+
+
+        </fieldset>
+
+        <fieldset name="adres">
+            <legend>adres</legend>
+            <label name="miasto">miasto</label>
+            <input type="text" name="miasto">
+
+            <label name="ulica">ulica</label>
+            <input type="text" name="ulica">
+
+            <label name="numer_domu">numer domu</label>
+            <input type="text" name="numer_domu">
+
+            <label name="kod_pocztowy">kod pocztowy</label>
+            <input type="text" name="kod_pocztowy">
+
+        </fieldset>
+
+        <fieldset>
+            <legend>autoryzacja</legend>
+
+            <label name="haslo">haslo</label>
+            <input type="password" name="haslo">
+
+            <label name="haslo2">powtórz hasło</label>
+            <input type="password" name="haslo2">
+
+
+            <input type="submit" value="Submit">
+        </fieldset>
+
+    </form>
+
 </body>
+
 </html>

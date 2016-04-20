@@ -1,9 +1,59 @@
 body {
-    background-color: yellow;
+    display: block;
+    margin: auto;
+    background-color: #F9F9F9;
+    width 100%;
 }
 
 img {
-	display: block;
-	margin: auto;
+    display: block;
+    margin: auto;
     width: 10%;
+}
+
+fieldset {
+    width: 90%;
+    margin: auto;
+}
+
+fieldset * {
+    display: block;
+    margin: auto;
+}
+
+label {
+    width: 10%;
+    margin-left: 20%;
+}
+
+input {
+    width: 40%;
+}
+
+label[name="lab_plec"] * {
+    display: inline !important;
+    width: 1em;
+    height: 1em;
+}
+
+label[name="lab_plec"] {
+    width: 40%;
+    margin: auto;
+}
+
+input[type="submit"] {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+header {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+header * {
+    padding: 1em;
+    text-align: center;
 }
