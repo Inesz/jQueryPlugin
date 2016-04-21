@@ -1,7 +1,8 @@
-/* jshint strict:false */
+/*global $:false, jQuery:false */
+
 (function($) {
-    //tablica asocjacyjna przechowująca flagi czy dany validator zakonczony z sukcerem (1) czy z porazka (0); 
     var btnSubmit = {};
+    //tablica asocjacyjna przechowująca flagi czy dany validator zakonczony z sukcerem (1) czy z porazka (0); 
     var checkValidators = {};
     var isValid = function(validator, value) {
         checkValidators[validator] = value;
@@ -10,7 +11,7 @@
         var valChecked = true;
         if ($.isEmptyObject(btnSubmit)) {
             return;
-        };
+        }
 
         $.each(checkValidators, function(key, value) {
             if (value === 0) {
@@ -103,7 +104,7 @@
                             $(retCity).val(data[zipcode].miejscowosc);
                         }
                     });
-                };
+                }
             });
 
         return this;
@@ -113,7 +114,7 @@
         $(this).prop('disabled', true);
         btnSubmit = $(this);
         $(this).css("color", "green");
-    }
+    };
 
 }(jQuery));
 
@@ -134,7 +135,9 @@ var entrophy = function(password) {
 
 
     for (var ind in password) {
+        if (password.hasOwnProperty(ind)) {
         strength = strength + (pi * l);
+        }
     }
     strength = -strength;
 
