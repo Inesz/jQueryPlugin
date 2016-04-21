@@ -4,4 +4,5 @@ $(document).ready(function() {
     $('input[name="email"]').emailValidator("info");
     
     $('input[name="kod_pocztowy"]').zipcodeValidator("info", 'input[name="miasto"]');
+    $('input[type="submit"]').formValidator();
 });
