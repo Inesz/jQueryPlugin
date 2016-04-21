@@ -43,6 +43,25 @@
 
         return this;
     };
+    
+    $.fn.zipcodeValidator = function(ret){
+        var invalidZipcode = "kod pocztowy niepoprawny (poprawny format: 00-00)";
+        var zipcodeRegExp = "^[0-9]{2}-[0-9]{3}$";
+        
+        this.on('change',
+            function() {
+                var zipcode = $(this).val();
+                if (checkRegExp(zipcodeRegExp, zipcode) === false) {
+                    $(this).nextAll('[name="' + ret + '"]').eq(0).children().remove();
+                    $(this).nextAll('[name="' + ret + '"]').eq(0).append(prepareOdp(invalidZipcode));
+                } else {
+                    $(this).nextAll('[name="' + ret + '"]').eq(0).children().remove();
+                    //uzupelnij miasto
+                }
+            });
+        
+         return this;
+    };
 
 }(jQuery));
 
