@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!--bootstrap-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -46,7 +47,8 @@
                 <input type="radio" name="plec" id="k" value="k">
             </label>
 
-
+            <div name="info"></div>
+            
         </fieldset>
 
         <fieldset name="adres">
@@ -62,6 +64,11 @@
 
             <label name="kod_pocztowy">kod pocztowy</label>
             <input type="text" name="kod_pocztowy">
+            
+            <label name="email">e-mail</label>
+            <input type="text" name="email">
+            
+            <div name="info"></div>
 
         </fieldset>
 
@@ -70,16 +77,17 @@
 
             <label name="haslo">haslo</label>
             <input type="password" name="haslo">
-
+            
             <label name="haslo2">powtórz hasło</label>
             <input type="password" name="haslo2">
 
-
+            <div name="info"></div>
+            
             <input type="submit" value="Submit">
         </fieldset>
 
     </form>
-
+    
 </body>
 
 </html>
