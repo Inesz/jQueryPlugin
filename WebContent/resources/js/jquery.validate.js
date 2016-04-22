@@ -38,7 +38,7 @@
                     $(this).css("border-color", "red");
                     isValid("passwordValidator", 0);
                 } else {
-                    var strength = entrophy(password);
+                    var strength = passwordRate(entrophy(password), ownPasswordRate(password));
                     $(this).nextAll('[name="' + ret + '"]').eq(0).children().remove();
                     $(this).nextAll('[name="' + ret + '"]').eq(0).append(prepareOdp(strength));
                     $(this).css("border-color", "");
@@ -131,23 +131,69 @@ var entrophy = function(password) {
     var maxStrength = -(maxPasswLength * l * pi);
 
     var strength = 0;
-    var ret = "Siła hasła: ";
-
 
     for (var ind in password) {
         if (password.hasOwnProperty(ind)) {
-        strength = strength + (pi * l);
+            strength = strength + (pi * l);
         }
     }
     strength = -strength;
 
     if (strength <= (1 / 3) * maxStrength)
-        ret += "słaba";
+        return 0;
     if (strength > (1 / 3) * maxStrength && strength <= (2 / 3) * maxStrength)
-        ret += "średnia";
+        return 1;
     if (strength > (2 / 3) * maxStrength)
+        return 2;
+};
 
-        ret += "wysoka";
+var ownPasswordRate = function(password) {
+    var group_letters = {};
+    var letter;
+    var ind;
+    var rate;
+    var passwd = password;
+
+    //zliczanie wystapien liter
+    while (passwd.length !== 0) {
+        letter = passwd.substring(0, 1);
+        group_letters[letter] = 0;
+        ind = 0;
+        while (ind !== -1) {
+            group_letters[letter]++;
+            var s1 = passwd.substring(0, ind);
+            var s2 = passwd.substring(ind + 1, passwd.length);
+            passwd = s1.concat(s2);
+            ind = passwd.indexOf(letter);
+        }
+    }
+
+    rate = Object.keys(group_letters).length / password.length;
+
+    if (rate <= (1 / 3))
+        return 0;
+    if (rate > (1 / 3) && rate <= (2 / 3))
+        return 1;
+    if (rate > (2 / 3))
+        return 2;
+};
+
+var passwordRate = function(rate1, rate2) {
+    console.log("r1:" + rate1 + " r2:" + rate2);
+    var ret = "Siła hasła: ";
+
+    switch (rate1 + rate2) {
+        case 0:
+        case 1:
+            ret += "słaba";
+            break;
+        case 2:
+        case 3:
+            ret += "średnia";
+            break;
+        case 4:
+            ret += "wysoka";
+    }
 
     return ret;
 };
